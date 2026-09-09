@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Thiệp Mời Thôi Nôi Bé Mây</title>
+<title>Thiệp Mời Thôi Nôi Nguyễn Diệp Chi</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,500;1,600;1,700&family=Dancing+Script:wght@600;700&family=Be+Vietnam+Pro:wght@400;500;600;700;800&display=swap">
@@ -284,9 +284,15 @@
 
   /* ---------- invite / family ---------- */
   .invite-name{
-    margin:10px 0 0; font-size:clamp(58px, 15vw, 92px); line-height:1.05; font-weight:700;
-    color:var(--forest-deep);
+    margin:10px 0 0; align-self:stretch; max-width:100%;
+    font-size:clamp(34px, 9.5vw, 64px); line-height:1.15; font-weight:700;
+    color:var(--forest-deep); word-break:break-word;
     text-shadow:0 3px 20px rgba(60,107,69,.22);
+  }
+  .invite-nickname{
+    display:inline-block; margin:8px 0 0; padding:5px 16px; border-radius:999px;
+    background:var(--cream-deep); font-size:13px; font-weight:600; letter-spacing:.03em;
+    color:var(--forest);
   }
   .invite-role{
     margin:0; display:flex; align-items:center; gap:10px;
@@ -515,7 +521,7 @@
   <div class="sky-clouds" id="skyClouds" aria-hidden="true"></div>
 
   <header class="hero">
-    <div class="hero-bg"><img src="images/backgroud.jpg" alt="Tiệc thôi nôi bé Mây - Nguyễn Diệp Chi" fetchpriority="high" decoding="async"></div>
+    <div class="hero-bg"><img src="images/backgroud.jpg" alt="Tiệc thôi nôi Nguyễn Diệp Chi - bé Mây" fetchpriority="high" decoding="async"></div>
     <div class="hero-veil"></div>
     <div class="hero-content">
       <div class="hero-seal">
@@ -581,7 +587,8 @@
     <section class="section section--cream" id="loi-moi">
       <div class="section-inner">
         <p class="eyebrow reveal-item">Yêu thương mời</p>
-        <h2 class="invite-name font-script reveal-item">bé Mây</h2>
+        <h2 class="invite-name font-script reveal-item">Nguyễn Diệp Chi</h2>
+        <span class="invite-nickname reveal-item">thường gọi ở nhà là bé Mây</span>
         <p class="invite-role reveal-item">
           <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2c1.2 2.4 2.9 4 5.3 5-2.4 1-4.1 2.6-5.3 5-1.2-2.4-2.9-4-5.3-5 2.4-1 4.1-2.6 5.3-5z"/></svg>
           Ái nữ của
@@ -758,7 +765,7 @@
             <span class="qr-bank">1903 8172 5650 16 · Techcombank</span>
           </p>
         </div>
-        <p class="footer-note">Tiệc thôi nôi bé Mây · 03.10.2026</p>
+        <p class="footer-note">Tiệc thôi nôi Nguyễn Diệp Chi · 03.10.2026</p>
       </div>
     </section>
   </main>
