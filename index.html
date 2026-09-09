@@ -99,6 +99,11 @@
     position:absolute; inset:0; z-index:1;
     background:linear-gradient(180deg, rgba(20,35,20,.1) 0%, rgba(18,32,18,.2) 38%, rgba(10,20,10,.82) 100%);
   }
+  @media (orientation: portrait){
+    .hero-veil{
+      background:linear-gradient(180deg, rgba(20,35,20,.04) 0%, rgba(18,32,18,.12) 42%, rgba(15,28,18,.58) 100%);
+    }
+  }
   .hero-content{
     position:relative; z-index:2;
     width:100%; max-width:640px; margin:0 auto;
@@ -129,6 +134,7 @@
     margin:0; align-self:stretch; max-width:100%;
     font-size:13px; font-weight:700; letter-spacing:.2em; text-transform:uppercase;
     color:var(--gold-light);
+    text-shadow:0 2px 10px rgba(0,0,0,.35);
   }
   .hero-name{
     margin:0; font-weight:700; max-width:100%;
@@ -140,6 +146,7 @@
     margin:2px 0 0; display:flex; flex-wrap:wrap; align-items:center; justify-content:center; gap:6px 8px;
     max-width:100%;
     font-size:13.5px; font-weight:500; color:rgba(255,255,255,.88); font-variant-numeric:tabular-nums;
+    text-shadow:0 2px 10px rgba(0,0,0,.35);
   }
   .hero-natal .dot{ color:var(--gold-light); }
 
@@ -154,7 +161,7 @@
     transition:opacity .2s ease;
   }
   .hero-facts a.fact:hover{ opacity:.8; }
-  .fact-top{ display:block; font-size:14.5px; font-weight:800; color:#fff; }
+  .fact-top{ display:block; font-size:14.5px; font-weight:800; color:#fff; text-shadow:0 2px 10px rgba(0,0,0,.35); }
   .fact-sub{ display:block; margin-top:3px; font-size:9.5px; font-weight:600; letter-spacing:.16em; text-transform:uppercase; color:rgba(255,255,255,.7); }
 
   .scroll-cue{
