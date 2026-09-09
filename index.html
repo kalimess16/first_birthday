@@ -117,17 +117,20 @@
   }
   .hero-seal svg{ width:20px; height:20px; color:#fff; }
   .hero-eyebrow{
-    margin:0; font-size:13px; font-weight:700; letter-spacing:.34em; text-transform:uppercase;
+    margin:0; align-self:stretch; max-width:100%;
+    font-size:13px; font-weight:700; letter-spacing:.2em; text-transform:uppercase;
     color:var(--gold-light);
   }
   .hero-name{
-    margin:0; font-weight:700;
-    font-size:clamp(46px, 12vw, 78px); line-height:1.05;
+    margin:0; font-weight:700; max-width:100%;
+    font-size:clamp(40px, 11vw, 78px); line-height:1.1;
     text-shadow:0 6px 30px rgba(0,0,0,.4);
+    word-break:break-word;
   }
   .hero-natal{
-    margin:2px 0 0; display:flex; flex-wrap:wrap; align-items:center; justify-content:center; gap:8px;
-    font-size:14.5px; font-weight:500; color:rgba(255,255,255,.88); font-variant-numeric:tabular-nums;
+    margin:2px 0 0; display:flex; flex-wrap:wrap; align-items:center; justify-content:center; gap:6px 8px;
+    max-width:100%;
+    font-size:13.5px; font-weight:500; color:rgba(255,255,255,.88); font-variant-numeric:tabular-nums;
   }
   .hero-natal .dot{ color:var(--gold-light); }
 
@@ -462,12 +465,12 @@
     <div class="hero-veil"></div>
     <div class="hero-content">
       <div class="hero-seal">
-        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2c1.2 2.4 2.9 4 5.3 5-2.4 1-4.1 2.6-5.3 5-1.2-2.4-2.9-4-5.3-5 2.4-1 4.1-2.6 5.3-5z"/></svg>
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 12L4 6.5v11L12 12zM12 12l8-5.5v11L12 12z"/><circle cx="12" cy="12" r="2.4"/></svg>
       </div>
       <p class="hero-eyebrow">Thiệp mời thôi nôi</p>
       <h1 class="hero-name font-script">Nguyễn Diệp Chi</h1>
       <p class="hero-natal">
-        <span>Sinh 14/10/2025</span><span class="dot">·</span>
+        <span>Sinh 14/10/2025 (23/8 âm lịch)</span><span class="dot">·</span>
         <span>Tuổi Ất Tỵ</span><span class="dot">·</span>
         <span>Mệnh Phú Đăng Hỏa</span>
       </p>
@@ -534,9 +537,9 @@
           <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2c1.2 2.4 2.9 4 5.3 5-2.4 1-4.1 2.6-5.3 5-1.2-2.4-2.9-4-5.3-5 2.4-1 4.1-2.6 5.3-5z"/></svg>
         </div>
         <p class="invite-copy reveal-item">
-          Vợ chồng chúng tôi xin mời ông bà, cô dì chú bác cùng anh chị em
-          trong gia đình đến chung vui nhân dịp lễ <strong>thôi nôi</strong>
-          của con gái chúng tôi.
+          Một năm đầu đời của con đã trôi qua thật ngọt ngào. Vợ chồng chúng tôi
+          kính mong ông bà, cô dì chú bác cùng anh chị em trong gia đình
+          thu xếp đến chung vui, chúc phúc cho con nhân ngày <strong>thôi nôi</strong>.
         </p>
       </div>
     </section>
@@ -632,7 +635,7 @@
         <div class="venue-card reveal-item">
           <div class="venue-border" aria-hidden="true"></div>
           <div class="venue-ring">
-            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2c1.2 2.4 2.9 4 5.3 5-2.4 1-4.1 2.6-5.3 5-1.2-2.4-2.9-4-5.3-5 2.4-1 4.1-2.6 5.3-5z"/></svg>
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 12L4 6.5v11L12 12zM12 12l8-5.5v11L12 12z"/><circle cx="12" cy="12" r="2.4"/></svg>
           </div>
           <p class="eyebrow venue-eyebrow">Cả nhà mình cùng tề tựu</p>
           <p class="venue-lead">Đến chung vui cùng gia đình tại</p>
@@ -675,7 +678,7 @@
     <section class="section section--deep">
       <div class="section-inner">
         <div class="closing-seal reveal-item">
-          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2c1.2 2.4 2.9 4 5.3 5-2.4 1-4.1 2.6-5.3 5-1.2-2.4-2.9-4-5.3-5 2.4-1 4.1-2.6 5.3-5z"/></svg>
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 12L4 6.5v11L12 12zM12 12l8-5.5v11L12 12z"/><circle cx="12" cy="12" r="2.4"/></svg>
         </div>
         <p class="closing reveal-item">Sự hiện diện của cả nhà là niềm hạnh phúc lớn lao của gia đình chúng tôi.</p>
         <div class="hosts reveal-item">
