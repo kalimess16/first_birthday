@@ -92,11 +92,15 @@
   }
   .hero-veil{
     position:absolute; inset:0; z-index:1;
-    background:linear-gradient(180deg, rgba(20,35,20,.1) 0%, rgba(18,32,18,.2) 38%, rgba(10,20,10,.82) 100%);
+    background:
+      radial-gradient(75% 55% at 50% 18%, transparent 45%, rgba(10,20,10,.4) 100%),
+      linear-gradient(180deg, rgba(20,35,20,.1) 0%, rgba(18,32,18,.2) 38%, rgba(10,20,10,.82) 100%);
   }
   @media (orientation: portrait){
     .hero-veil{
-      background:linear-gradient(180deg, rgba(20,35,20,.04) 0%, rgba(18,32,18,.12) 42%, rgba(15,28,18,.58) 100%);
+      background:
+        radial-gradient(75% 55% at 50% 18%, transparent 45%, rgba(10,20,10,.28) 100%),
+        linear-gradient(180deg, rgba(20,35,20,.04) 0%, rgba(18,32,18,.12) 42%, rgba(15,28,18,.58) 100%);
     }
   }
   .hero-content{
@@ -550,6 +554,7 @@
         <p class="invite-role reveal-item">
           <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2c1.2 2.4 2.9 4 5.3 5-2.4 1-4.1 2.6-5.3 5-1.2-2.4-2.9-4-5.3-5 2.4-1 4.1-2.6 5.3-5z"/></svg>
           Ái nữ của
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2c1.2 2.4 2.9 4 5.3 5-2.4 1-4.1 2.6-5.3 5-1.2-2.4-2.9-4-5.3-5 2.4-1 4.1-2.6 5.3-5z"/></svg>
         </p>
         <p class="invite-parents reveal-item">Nguyễn Viết Huy &amp; Lê Minh Tuệ</p>
         <div class="divider reveal-item">
@@ -830,34 +835,33 @@
     setInterval(tick, 1000);
   })();
 
-  // ---------- gallery drag-to-scroll (mouse) + wheel scroll ----------
+  // ---------- gallery drag-to-scroll (mouse) + wheel scroll + lightbox ----------
   (function(){
     var gallery = document.getElementById('gallery');
-    if(!gallery) return;
-    var isDown = false, startX = 0, startScroll = 0, moved = false;
+    var lightbox = document.getElementById('lightbox');
+    var lbImg = document.getElementById('lightboxImg');
+    var closeBtn = document.getElementById('lightboxClose');
+    if(!gallery || !lightbox) return;
+
+    var isDown = false, startX = 0, startScroll = 0, dragDistance = 0;
 
     gallery.addEventListener('pointerdown', function(e){
       if(e.pointerType === 'touch') return;
-      isDown = true; moved = false;
+      isDown = true; dragDistance = 0;
       startX = e.clientX;
       startScroll = gallery.scrollLeft;
       gallery.classList.add('dragging');
-      gallery.setPointerCapture(e.pointerId);
     });
     gallery.addEventListener('pointermove', function(e){
       if(!isDown) return;
       var dx = e.clientX - startX;
-      if(Math.abs(dx) > 4) moved = true;
+      dragDistance = Math.max(dragDistance, Math.abs(dx));
       gallery.scrollLeft = startScroll - dx;
     });
     function endDrag(){ isDown = false; gallery.classList.remove('dragging'); }
     gallery.addEventListener('pointerup', endDrag);
     gallery.addEventListener('pointercancel', endDrag);
     gallery.addEventListener('pointerleave', endDrag);
-
-    gallery.addEventListener('click', function(e){
-      if(moved){ e.preventDefault(); e.stopPropagation(); moved = false; }
-    }, true);
 
     gallery.addEventListener('wheel', function(e){
       if(Math.abs(e.deltaY) <= Math.abs(e.deltaX)) return;
@@ -868,22 +872,22 @@
       gallery.scrollLeft += e.deltaY;
       e.preventDefault();
     }, { passive:false });
-  })();
 
-  // ---------- lightbox ----------
-  (function(){
-    var gallery = document.getElementById('gallery');
-    var lightbox = document.getElementById('lightbox');
-    var lbImg = document.getElementById('lightboxImg');
-    var closeBtn = document.getElementById('lightboxClose');
-
+    // a single click handler decides: was this an actual drag, or a tap/click
+    // meant to open the photo? keeping this in one place (rather than a
+    // separate capture-phase listener that preventDefaults the click) avoids
+    // any chance of a real click getting silently swallowed.
     gallery.addEventListener('click', function(e){
+      var wasDrag = dragDistance > 10;
+      dragDistance = 0;
+      if(wasDrag) return;
       var img = e.target.closest('.photo-frame img');
       if(!img || img.style.display === 'none') return;
       lbImg.src = img.src;
       lbImg.alt = img.alt;
       lightbox.classList.add('open');
     });
+
     function close(){ lightbox.classList.remove('open'); lbImg.src=''; }
     closeBtn.addEventListener('click', close);
     lightbox.addEventListener('click', function(e){ if(e.target === lightbox) close(); });
