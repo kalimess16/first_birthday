@@ -20,6 +20,8 @@
     --gold-light:#f3d98a;
     --ink:#3a3a30;
     --ink-soft:#6b6b5c;
+    --baby-blue:#bfe4e0;
+    --baby-blue-light:#e9f7f5;
   }
 
   *{box-sizing:border-box;}
@@ -307,7 +309,8 @@
 
   .photo-frame{
     position:relative; flex:0 0 auto; width:70vw; max-width:270px;
-    border-radius:2px; overflow:hidden; background:#fff;
+    border-radius:2px; overflow:hidden;
+    background:linear-gradient(165deg, #fff 0%, var(--baby-blue-light) 100%);
     padding:10px 10px 34px;
     box-shadow:0 18px 34px -18px rgba(60,107,69,.5), 0 2px 6px rgba(0,0,0,.06);
     scroll-snap-align:center;
@@ -343,7 +346,7 @@
   /* ---------- venue card ---------- */
   .venue-card{
     position:relative; width:100%; border-radius:22px; overflow:hidden;
-    background:linear-gradient(165deg, #fff 0%, var(--cream-deep) 100%);
+    background:linear-gradient(165deg, #fff 0%, var(--baby-blue-light) 100%);
     border:1px solid var(--sage-soft);
     padding:40px 24px 30px; color:var(--ink); text-align:center;
     box-shadow:0 26px 54px -30px rgba(60,107,69,.4);
@@ -432,6 +435,43 @@
   .hosts .rsvp{ font-size:16px; font-weight:500; color:var(--ink-soft); letter-spacing:.02em; font-variant-numeric:tabular-nums; }
   .hosts .rsvp a{ color:var(--forest); text-decoration:none; border-bottom:1px solid var(--sage-soft); }
   .hosts .rsvp a:focus-visible{ outline:2px solid var(--forest); outline-offset:3px; }
+
+  .qr-card{
+    position:relative; width:100%; max-width:300px; margin-top:6px; border-radius:22px;
+    background:linear-gradient(165deg, #fff 0%, var(--baby-blue-light) 100%);
+    padding:30px 24px 26px; border:1px solid var(--sage-soft); text-align:center;
+    box-shadow:0 26px 54px -30px rgba(60,107,69,.4);
+  }
+  .qr-card-border{ position:absolute; inset:10px; border:1px solid rgba(217,169,74,.4); border-radius:14px; pointer-events:none; }
+  .qr-ring{
+    position:relative; width:48px; height:48px; margin:0 auto 14px; border-radius:50%;
+    background:radial-gradient(circle at 35% 30%, var(--gold-light), var(--gold) 70%);
+    display:flex; align-items:center; justify-content:center;
+    box-shadow:0 8px 20px -6px rgba(217,169,74,.6);
+  }
+  .qr-ring svg{ width:22px; height:22px; color:#fff; }
+  .qr-eyebrow{ position:relative; }
+  .qr-caption{ position:relative; margin:8px 0 0; font-size:13.5px; line-height:1.65; color:var(--ink-soft); }
+  .qr-frame{
+    position:relative; width:180px; max-width:72%; margin:22px auto 0;
+    background:#fff; padding:14px; border-radius:16px;
+    box-shadow:0 14px 28px -18px rgba(60,107,69,.5);
+  }
+  .qr-img{ width:100%; display:block; border-radius:6px; }
+  .qr-corner{ position:absolute; width:20px; height:20px; border:2px solid var(--gold); }
+  .qr-corner.tl{ top:-6px; left:-6px; border-right:none; border-bottom:none; border-radius:7px 0 0 0; }
+  .qr-corner.tr{ top:-6px; right:-6px; border-left:none; border-bottom:none; border-radius:0 7px 0 0; }
+  .qr-corner.bl{ bottom:-6px; left:-6px; border-right:none; border-top:none; border-radius:0 0 0 7px; }
+  .qr-corner.br{ bottom:-6px; right:-6px; border-left:none; border-top:none; border-radius:0 0 7px 0; }
+  .qr-account{ position:relative; margin:20px 0 0; }
+  .qr-name{
+    display:block; font-weight:700; font-size:16.5px; color:var(--forest);
+  }
+  .qr-bank{
+    display:inline-block; margin-top:8px; padding:6px 16px; border-radius:999px;
+    background:var(--cream-deep); font-size:12.5px; font-weight:600; letter-spacing:.02em;
+    color:var(--ink-soft); font-variant-numeric:tabular-nums;
+  }
 
   .footer-note{ margin:36px 0 0; font-size:12.5px; letter-spacing:.08em; color:var(--ink-soft); text-align:center; }
 
@@ -684,6 +724,25 @@
         <div class="hosts reveal-item">
           <p>Bố: Nguyễn Viết Huy — Mẹ: Lê Minh Tuệ</p>
           <p class="rsvp">Liên hệ: <a href="tel:0703455548">070 345 5548</a></p>
+        </div>
+        <div class="qr-card reveal-item">
+          <div class="qr-card-border" aria-hidden="true"></div>
+          <div class="qr-ring">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 12L4 6.5v11L12 12zM12 12l8-5.5v11L12 12z"/><circle cx="12" cy="12" r="2.4"/></svg>
+          </div>
+          <p class="eyebrow qr-eyebrow">Một chút tấm lòng</p>
+          <p class="qr-caption">Cả nhà ở xa không tiện đến, gửi chút lời chúc mừng bé qua đây nhé</p>
+          <div class="qr-frame">
+            <img class="qr-img" src="images/MA_QR.jpg" alt="Mã QR chuyển khoản mừng bé Mây - Nguyễn Viết Huy">
+            <span class="qr-corner tl"></span>
+            <span class="qr-corner tr"></span>
+            <span class="qr-corner bl"></span>
+            <span class="qr-corner br"></span>
+          </div>
+          <p class="qr-account">
+            <span class="qr-name">Nguyễn Viết Huy</span>
+            <span class="qr-bank">1903 8172 5650 16 · Techcombank</span>
+          </p>
         </div>
         <p class="footer-note">Tiệc thôi nôi bé Mây · 03.10.2026</p>
       </div>
