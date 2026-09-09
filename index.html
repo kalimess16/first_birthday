@@ -82,12 +82,19 @@
     background:var(--cream-deep);
   }
   @supports (height: 100svh){ .hero{ height:100svh; } }
-  .hero-bg{ position:absolute; inset:0; z-index:0; }
+  .hero-bg{ position:absolute; inset:0; z-index:0; background:var(--cream-deep); }
   .hero-bg img{
     width:100%; height:100%; object-fit:cover; object-position:center 28%;
     animation:kenburns 20s ease-in-out infinite alternate;
   }
   @keyframes kenburns{ 0%{ transform:scale(1.05); } 100%{ transform:scale(1.16); } }
+
+  /* on tall/narrow phone screens, the banner is wide-format artwork with
+     baked-in text — cropping via object-fit:cover cuts the text off, so
+     show it in full instead of zooming/cover-cropping. */
+  @media (orientation: portrait){
+    .hero-bg img{ object-fit:contain; object-position:center 16%; animation:none; transform:none; }
+  }
   .hero-veil{
     position:absolute; inset:0; z-index:1;
     background:linear-gradient(180deg, rgba(20,35,20,.1) 0%, rgba(18,32,18,.2) 38%, rgba(10,20,10,.82) 100%);
